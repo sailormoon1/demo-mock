@@ -2,25 +2,28 @@ package com.example.mock.demomock.controller;
 
 import com.example.mock.demomock.common.XMLEncodeModel2;
 import com.example.mock.demomock.vo.BillpayResponseEntity;
-import jdk.internal.util.xml.impl.XMLWriter;
 import lombok.extern.slf4j.Slf4j;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
-import java.io.DataOutputStream;
 import java.io.IOException;
 
 @Slf4j
 @RequestMapping("/mock")
-@Controller
+@RestController
 public class ThirdpartMockController {
-    @RequestMapping("/billpay")
+
+    @GetMapping("/test")
+    public String billpayProtocalPay(){
+        return "1111111111111111111111";
+    }
+
+    @PostMapping("/billpay")
+    @ResponseBody
     public String billpayProtocalPay(@RequestBody  String request, HttpServletResponse response){
        log.info("模拟快钱响应接口入参：{}",request);
         response.setCharacterEncoding("UTF-8");
