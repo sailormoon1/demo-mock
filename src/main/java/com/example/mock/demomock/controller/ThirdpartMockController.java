@@ -41,7 +41,6 @@ public class ThirdpartMockController {
                 log.error("快钱异步通知响应信息-关闭流异常",e);
             }
         }
-
         return "";
     }
 
